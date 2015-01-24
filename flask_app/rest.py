@@ -17,7 +17,7 @@ def _register_rest_getters(objtype, filters=()):
         return objtype.query.get(object_id)
 
     @blueprint.route('/{0}s'.format(typename), endpoint='query_{0}s'.format(typename))
-    @paginated_view(renderer=render_api_object)
+    @paginated_view(renderer=render_api_object, max_page_size=1000)
     @filterable_view(filters, typename)
     def query_objects():
         return objtype.query
