@@ -5,7 +5,8 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       session: this.get('store').find('session', params.session_id),
       tests: this.get('store').find('test', {
-        session_id: params.session_id
+        session_id: params.session_id,
+        page_size: 1000
       })
     });
   },
